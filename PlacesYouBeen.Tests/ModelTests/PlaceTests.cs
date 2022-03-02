@@ -23,7 +23,7 @@ namespace PlacesYouBeen.Tests
       string cityName = "Portland";
       Place newPlace = new Place(cityName);
       //Act
-      string result = "test";
+      string result = newPlace.CityName;
       //Assert
       Assert.AreEqual(cityName, result);
     }
