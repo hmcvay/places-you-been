@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PlacesYouBeen.Models;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace PlacesYouBeen.Tests
 {
@@ -12,7 +12,7 @@ namespace PlacesYouBeen.Tests
     public void PlaceConstructor_CreateInstanceOfPlace_Place()
     {
       //Arrange
-      Place newPlace = new Place("test city","test date");
+      Place newPlace = new Place("test city");
       //Assert
       Assert.AreEqual(typeof(Place), newPlace.GetType());
     }
@@ -21,25 +21,41 @@ namespace PlacesYouBeen.Tests
     {
       //Arrange
       string cityName = "Portland";
-      // string date = "Jan 1, 2022";
-      Place newPlace = new Place(cityName, "date");
+      Place newPlace = new Place(cityName);
       //Act
       string result = newPlace.CityName;
       //Assert
       Assert.AreEqual(cityName, result);
     }
 
+    // [TestMethod]
+    // public void GetDate_ReturnsDate_String() 
+    // {
+    //   //Arrange
+    //   string cityName = "Portland";
+    //   string date = "Jan 1, 2022";
+    //   Place newPlace = new Place(cityName);
+    //   //Act
+    //   string result = newPlace.Date;
+    //   //Assert
+    //   Assert.AreEqual(date, "Test");
+    // }
+
     [TestMethod]
-    public void GetDate_ReturnsDate_String() 
+    public void GetAll_ReturnAllCityNames_PlaceList()
     {
       //Arrange
-      string cityName = "Portland";
-      string date = "Jan 1, 2022";
-      Place newPlace = new Place(cityName, date);
+      string city1 = "City1";
+      string city2 = "City2";
+      Place place1 = new Place(city1);
+      Place place2 = new Place(city2);
+      List<Place> placeList = new List<Place> { 
+        place1, place2 
+      };
       //Act
-      string result = newPlace.Date;
+      List<Place> resultList = Place.GetAll();
       //Assert
-      Assert.AreEqual(date, "Test");
+      CollectionAssert.AreEqual(placeList, resultList);
     }
   }
 }
