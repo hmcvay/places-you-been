@@ -12,7 +12,7 @@ namespace PlacesYouBeen.Tests
     public void PlaceConstructor_CreateInstanceOfPlace_Place()
     {
       //Arrange
-      Place newPlace = new Place("test");
+      Place newPlace = new Place("test city","test date");
       //Assert
       Assert.AreEqual(typeof(Place), newPlace.GetType());
     }
@@ -21,11 +21,25 @@ namespace PlacesYouBeen.Tests
     {
       //Arrange
       string cityName = "Portland";
-      Place newPlace = new Place(cityName);
+      // string date = "Jan 1, 2022";
+      Place newPlace = new Place(cityName, "date");
       //Act
       string result = newPlace.CityName;
       //Assert
       Assert.AreEqual(cityName, result);
+    }
+
+    [TestMethod]
+    public void GetDate_ReturnsDate_String() 
+    {
+      //Arrange
+      string cityName = "Portland";
+      string date = "Jan 1, 2022";
+      Place newPlace = new Place(cityName, date);
+      //Act
+      string result = newPlace.Date;
+      //Assert
+      Assert.AreEqual(date, "Test");
     }
   }
 }
