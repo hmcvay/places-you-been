@@ -10,8 +10,9 @@
     <h1>Places You've Been</h1><hr>
     <ul>@foreach (Place place in Model)
       {
-        @place.CityName
+        <li>@place.CityName</li>
       }
-      
+    </ul>
+    <a href="/places/new">Add another city!</a><br>  
   </body>
 </html>
