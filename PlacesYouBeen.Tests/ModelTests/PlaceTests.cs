@@ -6,8 +6,11 @@ using System.Collections.Generic;
 namespace PlacesYouBeen.Tests
 {
   [TestClass]
-  public class PlaceTests
-  {
+  public class PlaceTests : IDisposable {
+    public void Dispose() {
+    Place.ClearAll();
+    }
+
     [TestMethod]
     public void PlaceConstructor_CreateInstanceOfPlace_Place()
     {
